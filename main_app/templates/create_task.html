@@ -1,0 +1,63 @@
+{% extends 'base.html' %} {% block content %}
+
+<div >
+<h1 class="title">{{header}}</h1>
+<form method="post" class="form-name">
+  <!-- Security Feature  -->
+  {% csrf_token %}
+  <!--  Generate inputs  -->
+  {{form.as_p}}
+  <!--  Submit form  -->
+   <button type="submit" name="addTask" class="btn flash-slide flash-slide--black">Add Task</button>
+</form>
+<br>
+
+<div>
+  {% for task in tasks %}
+  <div class="message-header">
+    <h1 class="title">{{task.name}}</h1>
+    {% comment %} <a href="{% url 'task_update' task.pk %}">Edit</a> {% endcomment %}
+    <form action="{% url 'task_update' task.pk %}" method="POST">
+      {% csrf_token %}
+      <input type="submit" value="Edit" class="flash-slide flash-slide--black" />
+    </form>
+    {% comment %} <a href="{% url 'deletetask' task.pk %}" value="delete">Delete</a> {% endcomment %}
+    <form action="{% url 'deletetask' task.pk %}" method="POST">
+      {% csrf_token %}
+      <input type="submit" value="Delete" class="btn flash-slide flash-slide--black" />
+    </form>
+  </div>
+  <br>
+  {% empty %}
+  <article>
+    <div class="message-header">
+      <p>No Task Available</p>
+    </div>
+  </article>
+  {% endfor %}
+</div>
+<br>
+
+
+<!-- Display the comment-->
+{% if comment %}
+<h1 class="title">{{comment.comments}}</h1>
+<form action="{% url 'delete_comment'%}" method="POST">
+  {% csrf_token %}
+  {% comment %} <input type="submit" value="Delete Comment" /> {% endcomment %}
+   <button type="submit" name="addComment" class="btn flash-slide flash-slide--black">Delete Comment</button>
+</form>
+{% else %}
+<form method="post" class="form-name">
+  <!-- Security Feature  -->
+  {% csrf_token %}
+  <!--  Generate inputs  -->
+  <div class="message-header">
+  {{commentform.as_p}}
+   
+  <!--  Submit form  -->
+  <button type="submit" name="addComment" class="btn flash-slide flash-slide--black">Add Comment</button>
+</form></div>
+<br>
+{% endif %}
+{% endblock %}

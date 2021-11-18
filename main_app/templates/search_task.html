@@ -1,0 +1,44 @@
+{% extends 'base.html' %} {% block content %}
+<h1 class="title">Find Task</h1>
+
+<form class="mb-5" method="get">
+  <div class="field has-addons">
+    <div class="">
+      <!--  Our input will search by name of artist  -->
+      <input class="input" type="text" name="task" placeholder="keyword e.g kids,grocery" />
+    </div>
+    <div class="">
+      <input class="button is-dark" type="submit" value="Search" />
+    </div>
+  </div>
+  <!--  This anchor tag will redirect back to artist list without a query param -->
+  {% comment %} <a class="button is-dark" placeholder="name">Clear Task</a> {% endcomment %}
+</form>
+
+<div>
+  {% for task in tasks %}
+  <div class="message-header">
+    <h1 class="title">{{task.name}}</h1>
+    {% comment %} <a href="{% url 'task_update' task.pk %}">Edit</a> {% endcomment %}
+    <form action="{% url 'task_update' task.pk %}" method="POST">
+      {% csrf_token %}
+      <input type="submit" value="Edit" class="flash-slide flash-slide--black" />
+    </form>
+    {% comment %} <a href="{% url 'deletetask' task.pk %}" value="delete">Delete</a> {% endcomment %}
+    <form action="{% url 'deletetask' task.pk %}" method="POST">
+      {% csrf_token %}
+      <input type="submit" value="Delete" class="btn flash-slide flash-slide--black" />
+    </form>
+  </div>
+  <br>
+  {% empty %}
+  <article>
+    <div class="message-header">
+      <p>{{empty}}</p>
+    </div>
+  </article>
+  {% endfor %}
+</div>
+<br>
+
+{% endblock %}

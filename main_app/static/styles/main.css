@@ -1,0 +1,119 @@
+body {
+    background-color:#CDCDCD;
+    /* color: #ffffff; */
+    min-height: 100vh;
+  }
+
+.btn {
+	font-family: Arial, Helvetica, sans-serif;
+	text-transform: uppercase;
+}
+
+/* For buttons */
+.btn:hover .btn-slide-show-text1 {
+	margin-left: 65px;
+}
+
+.flash-slide {
+	border: none;
+	display: inline-block;
+	color: rgb(255, 255, 255);
+	margin: 20px;
+	width: 180px;
+	height: 50px;
+	border-radius: 10px;
+	position: relative;
+	overflow: hidden;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-family: Helvetica;
+	text-align: center;
+}
+
+.flash-slide::before {
+	content: "";
+	position: absolute;
+	top: -30px;
+	left: -80px;
+	height: 100px;
+	width: 70px;
+	background: rgba(255, 255, 255, 0.3);
+	transform: rotate(20deg);
+}
+
+.flash-slide:hover::before {
+	left: 190px;
+	transition: all 0.5s ease 0s;
+}
+
+.flash-slide--black {
+	background: rgb(51, 51, 51);
+}
+
+
+/* **************************/
+.title{
+    /* color:white; */
+    font-style: italic;
+}
+
+.message-header{
+    border-radius: 20px;
+	background-color:#a8a8a8;
+	color: rgb(51, 51, 51);
+}
+
+.form-name{
+    font-size: 30px;
+    color:gray;
+}
+
+#id_name{
+    width: 50%;
+    height: 50px;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Lato:300);
+
+.login {
+  width: 500px;
+  padding: 10% 0 0;
+  margin: auto;
+}
+.form {
+    position: relative;
+    z-index: 1;
+    /* background: #575454; */
+    /* max-width: 500px; */
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  }
+
+.form input {
+    font-family: "Lato", sans-serif;
+    outline: 0;
+    /* background: #b88282; */
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+
+button {
+    font-family: "Lato", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #262725;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+  }

@@ -1,0 +1,14 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+<div class="title">Orignal Task: {{task.name}}</div>
+{% comment %} <p class="title">{{task.name}}</p> {% endcomment %}
+
+<form action="" method="post" class="form-name">
+  {% csrf_token %} {{form.as_p}} 
+  
+  {% comment %} <input type="submit" value="Submit" /> {% endcomment %}
+   <button type="submit" class="btn flash-slide flash-slide--black">Edit Task</button>
+</form>
+
+{% endblock %}
