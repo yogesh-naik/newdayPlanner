@@ -133,3 +133,21 @@ def Signup(request):
     else:
         context = {"form": form}
         return render(request, "registration/signup.html", context)
+    
+    
+# class Signup(View):
+#     # show a form to fill out
+#     def get(self, request):
+#         form = UserCreationForm()
+#         context = {"form": form}
+#         return render(request, "registration/signup.html", context)
+#     # on form submit validate the form and login the user.
+#     def post(self, request):
+#         form = UserCreationForm(request.POST)
+#         if form.is_valid():
+#             user = form.save()
+#             # login(request, user)
+#             return redirect('/addtask')
+#         else:
+#             context = {"form": form}
+#             return render(request, "registration/signup.html", context)
