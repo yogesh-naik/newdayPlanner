@@ -1,1 +1,1 @@
-web: gunicorn Spotify.wsgi
+web: gunicorn DayPlanner.wsgi
