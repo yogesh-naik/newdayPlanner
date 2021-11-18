@@ -78,8 +78,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'dailyplanner',
-        'USER':'yogesh',
-        'PASSWORD':'admin',
+        # 'USER':'yogesh',
+        # 'PASSWORD':'admin',
     }
 }
 
@@ -131,3 +131,25 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Add this variable to specify where successful logins should redirect to
 LOGIN_REDIRECT_URL = '/addtask'
 LOGOUT_REDIRECT_URL = '/'
+
+####################  #Added for heroku ##########################################
+import dj_database_url
+DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+
+
+#for static files(CSS)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
+
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
+# MIDDLEWARE_CLASSES = [
+#     'whitenoise.middleware.WhiteNoiseMiddleware',
+# ]
+
+##########################################
