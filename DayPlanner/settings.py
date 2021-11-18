@@ -48,6 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',#Added for heroku Static files(CSS,JS)
 ]
 
 ROOT_URLCONF = 'DayPlanner.urls'
@@ -148,8 +149,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
-MIDDLEWARE_CLASSES = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-]
+# MIDDLEWARE_CLASSES = [
+#     'whitenoise.middleware.WhiteNoiseMiddleware',
+# ]
 
 ##########################################
