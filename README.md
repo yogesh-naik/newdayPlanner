@@ -19,7 +19,7 @@
 
 # Flow Diagram
 
-![image](https://user-images.githubusercontent.com/12414199/142710550-c36bb0eb-8955-4d86-9bce-8c5ad2ba6250.png)
+![image](https://user-images.githubusercontent.com/12414199/142742854-bc3d4dbb-159e-4f1f-a3f1-51e83600f8b8.png)
 
 # Heroku Link -
 https://blooming-forest-01433.herokuapp.com/stocks/
